@@ -1,4 +1,4 @@
-import 'package:de_dtcite/feature/client/data/models/response_client_model.dart';
+import 'package:de_dtcite/feature/client/data/models/response_clients_totals_model.dart';
 import 'package:flutter/material.dart';
 
 class ClientCard extends StatefulWidget {
@@ -8,8 +8,8 @@ class ClientCard extends StatefulWidget {
     required this.onClick,
   }) : super(key: key);
 
-  final ClientData entity;
-  final Function(ClientData value) onClick;
+  final ClientsTotals entity;
+  final Function(String? clientId) onClick;
 
   @override
   State<ClientCard> createState() => _ClientCardState();
@@ -20,7 +20,7 @@ class _ClientCardState extends State<ClientCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        widget.onClick.call(widget.entity);
+        widget.onClick.call(widget.entity.id);
       },
       child: Card(
         elevation: 4.0,
@@ -36,7 +36,7 @@ class _ClientCardState extends State<ClientCard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "${widget.entity.attributes?.name}",
+                widget.entity.title ?? 'Undefined',
                 style: const TextStyle(
                   fontSize: 28.0,
                   fontWeight: FontWeight.w600,
@@ -44,10 +44,7 @@ class _ClientCardState extends State<ClientCard> {
                 maxLines: 2,
               ),
               Text(
-                "Symbol: ${widget.entity.attributes?.symbol}",
-              ),
-              Text(
-                "Created at: ${widget.entity.attributes?.created?.split("T")[0]}",
+                "Doi Count: ${widget.entity.count ?? 0}",
               ),
             ],
           ),

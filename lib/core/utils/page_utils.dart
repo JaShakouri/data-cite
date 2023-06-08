@@ -1,5 +1,4 @@
 import 'package:context_holder/context_holder.dart';
-import 'package:de_dtcite/feature/client/data/models/response_client_model.dart';
 import 'package:de_dtcite/feature/client/presenteration/screens/client_screen.dart';
 import 'package:de_dtcite/feature/doi/data/models/response_dio_model.dart';
 import 'package:de_dtcite/feature/doi/presenteration/screens/doi_details.dart';
@@ -16,7 +15,7 @@ goToClientView({required ProviderData args}) {
   );
 }
 
-goToDoiView({required ClientData args}) {
+goToDoiView({String? args}) {
   Navigator.push(
     ContextHolder.currentContext,
     MaterialPageRoute(
@@ -33,18 +32,3 @@ goToDoiDetailsView({required DoiData args}) {
     ),
   );
 }
-
-// goToEditPage(BuildContext context, {required CustomerEntity entity}) {
-//   Navigator.push(
-//     context,
-//     MaterialPageRoute(
-//       builder: (context) => EditCustomerPage(customerEntity: entity),
-//     ),
-//   );
-// }
-//
-// goBack(BuildContext context) {
-//   Navigator.pop(
-//     context,
-//   );
-// }

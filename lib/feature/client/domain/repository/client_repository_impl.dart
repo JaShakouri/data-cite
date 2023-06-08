@@ -1,9 +1,7 @@
-import 'dart:convert';
-
 import 'package:de_dtcite/config/api/api_const.dart';
 import 'package:de_dtcite/config/api/dio_client.dart';
 import 'package:de_dtcite/core/resources/data_state.dart';
-import 'package:de_dtcite/feature/client/data/models/response_client_model.dart';
+import 'package:de_dtcite/feature/client/data/models/response_clients_totals_model.dart';
 import 'package:de_dtcite/feature/client/data/repository/client_repository.dart';
 
 class ClientRepositoryImpl extends ClientRepository {
@@ -12,20 +10,17 @@ class ClientRepositoryImpl extends ClientRepository {
   ClientRepositoryImpl(this.dioClient);
 
   @override
-  Future<DataState<ResponseClientModel>> loadClient(
-      String providerId, int pageSize, int pageIndex) async {
+  Future<DataState<ClientsTotal>> loadClient(String providerId) async {
     try {
       var result = await dioClient.get(
-        getClients,
+        getClientsTotal,
         queryParameters: {
           "provider-id": providerId,
-          "page[number]": pageIndex,
-          "page[size]": pageSize,
         },
       );
 
       if (result != null && result.statusCode == 200) {
-        var mapper = responseClientModelFromJson(jsonEncode(result.data));
+        var mapper = ClientsTotal.fromJson(result.data);
         return DataSuccess(
           mapper,
         );

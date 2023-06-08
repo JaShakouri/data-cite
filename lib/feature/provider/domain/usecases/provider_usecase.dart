@@ -11,10 +11,10 @@ class ProviderUseCase
 
   @override
   Future<DataState<ResponseProviderModel>> call(
-    String param,
+    String param, {
     int? pageSize,
     int? pageIndex,
-  ) async {
+  }) async {
     return await repository.loadProvider(
       param,
       pageSize ?? 20,

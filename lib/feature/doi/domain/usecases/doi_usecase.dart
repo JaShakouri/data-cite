@@ -10,10 +10,10 @@ class DoiUseCase extends UseCase<DataState<ResponseDoiModel>, String> {
 
   @override
   Future<DataState<ResponseDoiModel>> call(
-      String param,
-      int? pageSize,
-      int? pageIndex,
-      ) async {
+    String param, {
+    int? pageSize,
+    int? pageIndex,
+  }) async {
     return await repository.loadDoi(
       param,
       pageSize ?? 20,

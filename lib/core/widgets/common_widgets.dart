@@ -33,7 +33,7 @@ emptyView() {
             height: 16.0,
           ),
           Text(
-            "Data is empty",
+            "Not found anything",
             textAlign: TextAlign.center,
             style: TextStyle(
               fontWeight: FontWeight.w600,

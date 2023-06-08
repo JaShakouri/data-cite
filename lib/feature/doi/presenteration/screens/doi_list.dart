@@ -2,10 +2,7 @@ import 'package:de_dtcite/core/base/base_status.dart';
 import 'package:de_dtcite/core/utils/constants.dart';
 import 'package:de_dtcite/core/utils/toast_utils.dart';
 import 'package:de_dtcite/core/widgets/app_scaffold.dart';
-import 'package:de_dtcite/core/widgets/card_skeleton.dart';
 import 'package:de_dtcite/core/widgets/common_widgets.dart';
-import 'package:de_dtcite/feature/client/data/models/response_client_model.dart';
-import 'package:de_dtcite/feature/client/presenteration/widgets/client_card.dart';
 import 'package:de_dtcite/feature/doi/data/models/response_dio_model.dart';
 import 'package:de_dtcite/feature/doi/presenteration/bloc/doi_bloc.dart';
 import 'package:de_dtcite/feature/doi/presenteration/bloc/status/doi_load_status.dart';
@@ -17,9 +14,9 @@ import 'package:de_dtcite/config/di/locator.dart' as di;
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class DoiList extends StatefulWidget {
-  const DoiList(this.args, {Key? key}) : super(key: key);
+  const DoiList(this.clientId, {Key? key}) : super(key: key);
 
-  final ClientData args;
+  final String? clientId;
 
   @override
   State<DoiList> createState() => _DoiListState();
@@ -29,10 +26,10 @@ class _DoiListState extends State<DoiList> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => DoiBloc(di.locator(), widget.args.id ?? ""),
+      create: (_) => DoiBloc(di.locator(), widget.clientId ?? ""),
       child: AppScaffold(
         appBar: AppBar(
-          title: Text("${widget.args.id?.toUpperCase()} - Doi list"),
+          title: const Text("Doi list"),
           backgroundColor: kPrimaryColor,
           elevation: 2.0,
         ),

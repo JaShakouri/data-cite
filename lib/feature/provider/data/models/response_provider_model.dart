@@ -39,7 +39,7 @@ class ResponseProviderModel {
 
   List<ProviderData> get providers => _data ?? [];
 
-  MetaPage? get page => _meta;
+  MetaPage? get meta => _meta;
 }
 
 ProviderData dataFromJson(String str) =>
@@ -204,31 +204,37 @@ class MetaPage {
     num? total,
     num? totalPages,
     num? page,
+    num? index,
   }) {
     _total = total;
     _totalPages = totalPages;
     _page = page;
+    _index = index;
   }
 
   MetaPage.fromJson(dynamic json) {
     _total = json['total'];
     _totalPages = json['totalPages'];
     _page = json['page'];
+    _index = json['index'];
   }
 
   num? _total;
   num? _totalPages;
   num? _page;
+  num? _index;
 
   MetaPage copyWith({
     num? total,
     num? totalPages,
     num? page,
+    num? index,
   }) =>
       MetaPage(
         total: total ?? _total,
         totalPages: totalPages ?? _totalPages,
         page: page ?? _page,
+        index: index ?? _index,
       );
 
   num? get total => _total;
@@ -237,11 +243,14 @@ class MetaPage {
 
   num? get page => _page;
 
+  num? get index => _index;
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['total'] = _total;
     map['totalPages'] = _totalPages;
     map['page'] = _page;
+    map['index'] = _page;
     return map;
   }
 }

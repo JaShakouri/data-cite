@@ -1,4 +1,3 @@
-import 'package:de_dtcite/feature/client/data/models/response_client_model.dart';
 import 'package:de_dtcite/feature/doi/data/models/response_dio_model.dart';
 import 'package:flutter/material.dart';
 

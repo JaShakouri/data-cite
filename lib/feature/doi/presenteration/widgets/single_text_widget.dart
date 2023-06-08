@@ -22,11 +22,14 @@ class SingleTextWidget extends StatelessWidget {
         const SizedBox(
           height: 16.0,
         ),
-        Text(
-          value,
-          style: const TextStyle(
-            fontSize: 14.0,
-            fontWeight: FontWeight.w400,
+        Padding(
+          padding: const EdgeInsets.only(left: 16.0),
+          child: Text(
+            value,
+            style: const TextStyle(
+              fontSize: 14.0,
+              fontWeight: FontWeight.w400,
+            ),
           ),
         ),
       ],

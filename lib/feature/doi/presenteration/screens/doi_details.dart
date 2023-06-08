@@ -60,11 +60,14 @@ class DoiDetails extends StatelessWidget {
               height: 16.0,
             ),
             ...(args.attributes?.creators ?? []).map(
-              (e) => Text(
-                "${e.givenName} ${e.familyName}",
-                style: const TextStyle(
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w400,
+              (e) => Padding(
+                padding: const EdgeInsets.only(left: 16.0),
+                child: Text(
+                  "${e.givenName} ${e.familyName}",
+                  style: const TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ),
             ),
@@ -82,25 +85,32 @@ class DoiDetails extends StatelessWidget {
               height: 16.0,
             ),
             ...(args.attributes?.titles ?? []).map(
-              (e) => Column(
-                children: [
-                  Text(
-                    e.lang != null ? "${e.lang}" : "${e.title}",
-                    style: TextStyle(
-                      fontSize: e.lang != null ? 16.0 : 12.0,
-                      fontWeight: FontWeight.w400,
+              (e) => Padding(
+                padding: const EdgeInsets.only(left: 16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      e.lang != null ? "${e.lang}" : "${e.title}",
+                      style: TextStyle(
+                        fontSize: e.lang != null ? 16.0 : 12.0,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
-                  ),
-                  e.lang != null
-                      ? Text(
-                          "${e.title}",
-                          style: const TextStyle(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        )
-                      : Container(),
-                ],
+                    e.lang != null
+                        ? Text(
+                            "${e.title}",
+                            style: const TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          )
+                        : Container(),
+                    const SizedBox(
+                      height: 32.0,
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(
@@ -117,25 +127,32 @@ class DoiDetails extends StatelessWidget {
               height: 16.0,
             ),
             ...(args.attributes?.subjects ?? []).map(
-              (e) => Column(
-                children: [
-                  Text(
-                    e.lang != null ? "${e.lang}" : "${e.subject}",
-                    style: TextStyle(
-                      fontSize: e.lang != null ? 16.0 : 12.0,
-                      fontWeight: FontWeight.w400,
+              (e) => Padding(
+                padding: const EdgeInsets.only(left: 16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      e.lang != null ? "${e.lang}" : "${e.subject}",
+                      style: TextStyle(
+                        fontSize: e.lang != null ? 16.0 : 12.0,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
-                  ),
-                  e.lang != null
-                      ? Text(
-                          "${e.subject}",
-                          style: const TextStyle(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        )
-                      : Container(),
-                ],
+                    e.lang != null
+                        ? Text(
+                            "${e.subject}",
+                            style: const TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          )
+                        : Container(),
+                    const SizedBox(
+                      height: 32.0,
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(
@@ -152,25 +169,29 @@ class DoiDetails extends StatelessWidget {
               height: 16.0,
             ),
             ...(args.attributes?.descriptions ?? []).map(
-              (e) => Column(
-                children: [
-                  Text(
-                    e.lang != null ? "${e.lang}" : "${e.description}",
-                    style: TextStyle(
-                      fontSize: e.lang != null ? 16.0 : 12.0,
-                      fontWeight: FontWeight.w400,
+              (e) => Padding(
+                padding: const EdgeInsets.only(left: 16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      e.lang != null ? "${e.lang}" : "${e.description}",
+                      style: TextStyle(
+                        fontSize: e.lang != null ? 16.0 : 12.0,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
-                  ),
-                  e.lang != null
-                      ? Text(
-                          "${e.description}",
-                          style: const TextStyle(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        )
-                      : Container(),
-                ],
+                    e.lang != null
+                        ? Text(
+                            "${e.description}",
+                            style: const TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          )
+                        : Container(),
+                  ],
+                ),
               ),
             ),
             const SizedBox(

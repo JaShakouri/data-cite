@@ -2,9 +2,8 @@ import 'package:de_dtcite/core/base/base_status.dart';
 import 'package:de_dtcite/core/utils/constants.dart';
 import 'package:de_dtcite/core/utils/toast_utils.dart';
 import 'package:de_dtcite/core/widgets/app_scaffold.dart';
-import 'package:de_dtcite/core/widgets/card_skeleton.dart';
 import 'package:de_dtcite/core/widgets/common_widgets.dart';
-import 'package:de_dtcite/feature/client/data/models/response_client_model.dart';
+import 'package:de_dtcite/feature/client/data/models/response_clients_totals_model.dart';
 import 'package:de_dtcite/feature/client/presenteration/bloc/client_bloc.dart';
 import 'package:de_dtcite/feature/client/presenteration/bloc/status/load_client_status.dart';
 import 'package:de_dtcite/feature/client/presenteration/widgets/client_card.dart';
@@ -66,12 +65,12 @@ class _ClientScreenState extends State<ClientScreen> {
     );
   }
 
-  _readAllComplete(List<ClientData> list, BuildContext context) {
+  _readAllComplete(List<ClientsTotals> list, BuildContext context) {
     if (list.isNotEmpty) {
-      return PagedListView<int, ClientData>(
+      return PagedListView<int, ClientsTotals>(
         pagingController: context.read<ClientBloc>().pagingController,
         padding: const EdgeInsets.all(16.0),
-        builderDelegate: PagedChildBuilderDelegate<ClientData>(
+        builderDelegate: PagedChildBuilderDelegate<ClientsTotals>(
           itemBuilder: (context, item, index) => DelayedDisplay(
             fadeIn: true,
             delay: const Duration(milliseconds: 200),
